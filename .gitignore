@@ -1,0 +1,8 @@
+.stack-work/
+*.cabal
+*~
+.history
+.stack.yaml.lock
+.stack.yaml
+.packpage
+.circleci/config.yml
