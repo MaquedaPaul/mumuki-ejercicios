@@ -25,6 +25,7 @@ Nota2: Asumir que ya existe una función promociono que dada una tupla de notas 
 promociono :: (Int,Int) -> Bool
 promociono (nota1,nota2) = fst(nota1,nota2) + snd(nota1,nota2) >= 14 && nota1>=6 && nota2>=6
 
+notasFinales :: ((Int,Int),(Int,Int)) -> (Int,Int)
 notasFinales ((parc1,parc2),(recup1,recup2)) = (max parc1 recup1,max parc2 recup2)
 
 {-
@@ -32,10 +33,11 @@ Lo siguiente es pattern matching:
 recuperoDeGusto ((parc1,parc2),(recup1,recup2)) = promociono (parc1,parc2) && (recup1 /= -1 || recup2 || -1)
 -}
 
-
+recuperoDeGusto :: ((Int,Int),(Int,Int)) -> Bool
 recuperoDeGusto ((parc1,parc2),(recup1,recup2)) = (promociono (fst((parc1,parc2),(recup1,recup2)))) && (recuperoPrimer ((parc1,parc2),(recup1,recup2)) || recuperoSegundo ((parc1,parc2),(recup1,recup2)))
 
-
+recuperoPrimer :: ((Int,Int),(Int,Int)) -> Bool
 recuperoPrimer ((parc1,parc2),(recup1,recup2)) = ((snd.snd) $ ((parc1,parc2),(recup1,recup2))) /= -1
+recuperoSegundo :: ((Int,Int),(Int,Int)) -> Bool
 recuperoSegundo ((parc1,parc2),(recup1,recup2)) = ((fst.snd) $ ((parc1,parc2),(recup1,recup2))) /= -1
 
