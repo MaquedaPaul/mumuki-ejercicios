@@ -27,5 +27,5 @@ Debe usarse (ya está definida) la función techo, que recibe un número y devue
 --con composición
 --techo = undefined
 techo = undefined
-
+cuantoPagaCadaUno :: Float -> Float -> Int
 cuantoPagaCadaUno precioPizza cantComensales = techo . (/cantComensales) . (*precioPizza) . techo . (/8) . (*3) $ cantComensales 
